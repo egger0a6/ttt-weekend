@@ -60,13 +60,17 @@ function render() {
 // render()'s forEach callback function
 function renderSquare(sqr, indx) {
   if (sqr === 1) {
-    squareEls[indx].style.backgroundColor = "blue";
+    squareEls[indx].textContent = "X";
+    squareEls[indx].style.color = "#0B3ED9";
   }
   else if (sqr === -1) {
-    squareEls[indx].style.backgroundColor = "red";
+    squareEls[indx].textContent = "O";
+    squareEls[indx].style.color = "#FF5D05";
+    
   }
   else {
-    squareEls[indx].style.backgroundColor = "grey";
+    squareEls[indx].textContent = "";
+    squareEls[indx].style.color = null;
   }
 }
 
@@ -78,7 +82,6 @@ function handleClick(evt) {
   board[sqIndex] = turn;
   turn *= -1;
 
-  console.log(getWinner());
   winner = getWinner();
 
   render();
